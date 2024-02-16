@@ -42,7 +42,7 @@ class Book_Copy_Info(models.Model):
         ordering = ['due_back']
 
     def __str__(self):
-        return f"{self.id} ({self.book.title})"
+      return f"({self.book.title}) {self.status} {self.due_back} {self.id}"
       
 class Author(models.Model):
   first_name = models.CharField(max_length = 100)
