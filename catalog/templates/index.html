@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+{% block title %}
+<title> Shiksha</title>
+{% endblock %}
+{% block content %}
+<h1> Welcome to Shiksha</h1>
+<p>
+    A library for the people who want to improve spiritually & financially. Shiksha is your go to library for
+    all things leading to your spiritual awakening and financial freedom.
+</p>
+<h2>Important facts</h2>
+<p>The library has the following record counts:</p>
+<ul>
+    <li><strong>Total Books:</strong> {{ total_num_books }}</li>
+    <li><strong>Total available imprints:</strong> {{ total_num_Book_Copy_Info }}</li>
+    <li><strong>Copies available:</strong> {{ total_num_Book_Copy_Info_avail }}</li>
+    <li><strong>Authors:</strong> {{total_num_authors}}</li>
+    <li><strong>Total Genres: </strong>{{total_num_genres}}
+</ul>
+{% endblock %}
