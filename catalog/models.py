@@ -11,6 +11,7 @@ class Book(models.Model):
   isbn = models.CharField('ISBN', max_length = 200, unique = True, help_text = '13 Character <a href="https://www.isbn-international.org/content/what-isbn'
    '">ISBN number</a>')
   genre = models.ManyToManyField('Genre', help_text = "Select a genre for this book")
+  #language = models.ForeignKey('Language', on_delete =models.RESTRICT, null = True)
  
   def __str__(self):
     return f"{self.title}"
@@ -79,7 +80,7 @@ class Language(models.Model):
   blank=True)
 
   def __str__(self):
-    return f"{self.language}"
+    return f"{self.language_name}"
 
   def get_absolute_url(self):
     return reverse('language-detail', args =[str(self.id)])
