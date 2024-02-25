@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Author Details are below :</h1>
+<h2> Author : {{author.first_name}} {{author.last_name}}</h2>
+
+<p> Author's DOB : {{author.date_of_birth}} </p>
+<div style="margin-left:20px;margin-top:20px">
+    <h4> Books written: </h4>
+    <dl>
+        { for book in author.book_set.all}
+        <dt> <a href="{{book.get_absoliute_url}}" {{book.title}}></a></dt>
+        {% empty %}
+        <p> Sorry, we don't have any books from this author yet</p>
+
+        {% endfor % }
+    </dl>
+
+
+</div>
+{% endblock %}
