@@ -18,12 +18,13 @@ class LanguageAdmin(admin.ModelAdmin):
 
 @admin.register(Book_Copy_Info)
 class Book_Copy_InfoAdmin(admin.ModelAdmin):
+    list_display = ('book', 'status', 'borrower', 'due_back', 'id')
     fieldsets = (
         ('Details', {
             'fields': ('book', 'imprint', 'id')
         }),
         ('Availability', {
-            'fields': ('status', 'due_back')
+            'fields': ('status', 'due_back','borrower')
         }),
     )
 

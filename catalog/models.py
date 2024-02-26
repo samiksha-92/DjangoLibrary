@@ -35,6 +35,12 @@ class Book_Copy_Info(models.Model):
     due_back = models.DateField(null =True, blank =True)
     borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
 
+    @property
+    def is_overdue(self):
+        """Determines if the book is overdue based on due date and current date."""
+        return bool(self.due_back and date.today() > self.due_back)
+
+
 
     LOAN_STATUS = (
         ('m', 'Maintenance'),
