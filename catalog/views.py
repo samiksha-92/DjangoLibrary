@@ -4,7 +4,9 @@ from django.views import generic
 # Create your views here.
 
 from .models import Book,Book_Copy_Info,Language,Genre,Author
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     total_num_books = Book.objects.count()
     total_num_Book_Copy_Info = Book_Copy_Info.objects.count()
