@@ -35,6 +35,8 @@ class Book_Copy_Info(models.Model):
     due_back = models.DateField(null =True, blank =True)
     borrower = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
 
+
+
     @property
     def is_overdue(self):
         """Determines if the book is overdue based on due date and current date."""
@@ -52,6 +54,7 @@ class Book_Copy_Info(models.Model):
     
     class Meta:
         ordering = ['due_back']
+        permissions = (('can_mark_returned', 'Set Book as Returned'),)
 
     def __str__(self):
       return f"({self.book.title}) {self.status} {self.due_back} {self.id}"
