@@ -6,10 +6,9 @@
 {% if book_Copy_Info_list %}
 <ul>
 
-    {% for copy in book_Copy_Info__list %}
-    <li class="{% if book_Copy_Info.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' book_Copy_Info.book.pk %}">{{ book_Copy_Info.book.title }}</a>
-        ({{ book_Copy_Info.due_back }})
+    {% for copy in book_Copy_Info_list.is_overdue %}text-danger{% endif %}">
+    <a href="{% url 'book-detail' book_Copy_Info.book.pk %}">{{ book_Copy_Info.book.title }}</a>
+    ({{ book_Copy_Info.due_back }})
     </li>
     {% endfor %}
 </ul>
